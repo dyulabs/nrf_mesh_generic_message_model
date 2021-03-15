@@ -76,12 +76,12 @@ typedef struct
     uint8_t tid;                                            /**< Transaction ID */
 } generic_message_set_params_t;
 
-/** Parameters for the Generic message status message. */
-typedef struct
+/** Message format for the generic_message Status message. */
+typedef struct __attribute((packed))
 {
-    uint8_t* message;                                 /**< The present value of the Generic message state */
+    uint8_t * message;                                 /**< The present value of the Generic message state */
     uint16_t msg_len;
-    uint32_t remaining_time_ms;                             /**< Remaining time value in milliseconds */
+    uint8_t remaining_time_ms;                                 /**< Encoded remaining time */
 } generic_message_get_params_t;
 
 /**@} end of GENERIC_MESSAGE_MODEL */
